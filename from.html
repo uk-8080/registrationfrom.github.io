@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+<body>
+<div class="container register">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tab-pane fade show active text-align form-new" id="home" role="tabpanel" aria-labelledby="home-tab" >
+                <div class="row register-form">
+                    <div class="col-md-12">
+                        <form method="post" autocomplete="off" class="form-control"    name="google-sheet">
+                            <label> Name :</label>
+                            <input type="text" id="name" name="Name">
+                            <br><br>
+                            <input type="submit" name="submit" class="btnSubmit btn-block" value="Login" />
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div> 
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw7-RfMDxKNdH5ZJWe7S7FX3418GeBTXZCc_EhLBs20TgG61PEiPK7OrYNh2gEQwA/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>
